@@ -23,3 +23,26 @@ Once you have the prerequisites in place, you're ready to clone the workshop rep
 Your development environment will be fully configured for you, including all the necessary dependencies and tools to participate in the workshop activities. This setup ensures that everyone is on the same page, regardless of individual computer configurations.
 
 During the Workshop, we'll dive into various challenges that will require you to utilize the skills and knowledge gained from setting up and working within your dev container. Our expert-led exercises are designed to enhance your understanding and capabilities in working with containers, providing you with hands-on experience in solving real-world development scenarios.
+
+## Starting the Workshop UI (Blazor App)
+
+Once your development environment is set up, follow these steps to start the Blazor application, which serves as the workshop's UI:
+
+1. In Visual Studio Code, open a new terminal window.
+
+2. Navigate to the `BlazorWorkshopApp` folder within the cloned repository by running the following command:
+
+    ```bash
+    cd BlazorWorkshopApp
+    ```
+
+3. Start the Blazor application by executing:
+
+    ```bash
+    dotnet run
+    ```
+
+4. Once the application is running, access the UI by opening a web browser and navigating to [http://localhost:5026](http://localhost:5026).
+
+This will launch the Blazor Workshop UI, allowing you to interact with the application and complete the workshop activities directly through your browser. Make sure to keep the terminal running as you work through the workshop exercises.
+

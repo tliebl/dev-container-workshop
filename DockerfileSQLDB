@@ -1,0 +1,24 @@
+FROM mcr.microsoft.com/dotnet/sdk:8.0-alpine AS CreateScript
+WORKDIR /app
+COPY ./WorkshopAPI .
+ENV PATH="${PATH}:/root/.dotnet/tools"
+ENV ASPNETCORE_ENVIRONMENT=LocalDocker
+RUN dotnet tool install --global dotnet-ef --version 8.0.0
+RUN dotnet ef migrations script -o appscript.sql --context WorkshopContext -- LocalDocker
+
+FROM mcr.microsoft.com/mssql/server:2022-CU11-ubuntu-22.04
+# Configure the required environmental variables
+ENV SA_PASSWORD=YourStrong(!)Password
+ENV ACCEPT_EULA=Y
+ENV DBNAME=Workshop
+COPY --from=CreateScript /app/Database/Scripts/CreateDatabase.sql ./tmp/CreateDatabase.sql
+COPY --from=CreateScript /app/appscript.sql ./tmp/appscript.sql
+COPY --from=CreateScript /app/Database/Scripts/WeatherSeedData.sql ./tmp/WeatherSeedData.sql
+
+# Launch SQL Server, confirm startup is complete, then terminate SQL Server.
+# See https://stackoverflow.com/a/51589787/488695
+RUN ( /opt/mssql/bin/sqlservr --accept-eula & ) | grep -q "Service Broker manager has started" \
+&& /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P $SA_PASSWORD -i /tmp/CreateDatabase.sql \
+&& /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P $SA_PASSWORD -d $DBNAME -i /tmp/appscript.sql -I \
+&& /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P $SA_PASSWORD -d $DBNAME -i /tmp/WeatherSeedData.sql -I \
+&& pkill sqlservr

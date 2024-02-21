@@ -1,0 +1,77 @@
+@page "/bridging-the-divide"
+@using BlazorWorkshopApp.Components;
+
+<PageTitle>Bridging the Divide: Network Harmony in Remote Containers</PageTitle>
+
+<div class="container mt-5">
+    <h1>Bridging the Divide: Network Harmony in Remote Containers</h1>
+    
+    <p>Embark on a navigational challenge through the uncharted waters of Docker networking. This module is your compass to mastering connectivity within the containerized realm, ensuring seamless communication between your isolated development environment and bustling service ports.</p>
+    
+    <h2>Challenge 1: Launching the Fleet</h2>
+    <CollapsibleSection>
+       <p><strong>Objective:</strong> Explore the connectivity between your applications and the database within the Docker Compose network using the custom Docker Compose file and VS Code tasks.</p>
+    
+        <p><strong>Initial Setup:</strong> Utilize the Docker Compose environment configured in <code>docker-compose-local-apps.yml</code> to initialize the Blazor UI, WebAPI, and database services.</p>
+        
+        <p><strong>Steps:</strong></p>
+        <ol>
+            <li>Open the Command Palette with <code>Ctrl+Shift+B</code></li>
+            <li>Choose <strong>"LOCAL APPS: Docker Compose REBUILD AND RUN"</strong> to build and run your services as defined in <code>docker-compose-local-apps.yml</code>.</li>
+            <li>In two separate terminals within VS Code, navigate to the API and Blazor application directories respectively.</li>
+                <ul>
+                    <li>For the API - <code>dotnet run</code> in the terminal</li>
+                    <li>For the Blazor application -<code>dotnet run</code>in the terminal</li>
+                </ul>
+            <li>Access both UIs in your web browser:</li>
+                <ul>
+                    <li>The Blazor application running directly from the terminal at <code>http://localhost:5026</code>.</li>
+                    <li>The Docker Compose environment's Blazor UI at <code>http://localhost:5056</code>.</li>
+                </ul>
+            <li>Explore the "Weather" section in both UIs to compare the behavior and data displayed from your WebAPI, which retrieves data from the database service.</li>
+        </ol>
+        <p><strong>Discussion:</strong> Reflect on the observed behavior. If the data isn't displayed as expected, discuss the potential reasons behind this outcome. Consider the differences in network connectivity when services are run via Docker Compose versus running directly with <code>dotnet run</code> commands inside VS Code terminals. How does the Docker Compose network environment compare to the default network environment used by applications run directly from VS Code terminals?</p>
+    </CollapsibleSection>
+
+
+    <h2>Challenge 2: Charting a Course for Connectivity</h2>
+    <CollapsibleSection>
+    <p><strong>Objective:</strong> Identify and rectify the issue that obstructs your Blazor application from successfully fetching data via the WebAPI. Your mission is to ensure harmonious communication between all your services.</p>
+
+    <p><strong>Guidance:</strong> The key to resolution lies within your understanding of how Docker networks orchestrate interaction between containers. Reflect on how your development environment and its services communicate and consider what adjustments might be necessary to unify them under a common network umbrella.</p>
+
+    <p><strong>Steps:</strong></p>
+    <ol>
+        <li>Examine the current network configuration of your development environment and Docker services. Think about how they are interconnected and whether they share the same network space.</li>
+        <li>Investigate the `devcontainer.json` and Docker Compose configurations. Are there modifications that could enhance network coherence between your development container and the rest of your services?</li>
+        <li>After hypothesizing potential adjustments, implement the changes you believe will resolve the connectivity issue. This may involve altering network configurations or other related settings.</li>
+        <li>Rebuild your development environment to apply your adjustments. Pay close attention to the outcome of these changes on the inter-service communication.</li>
+        <li>Test the impact of your modifications by accessing the Blazor application. Specifically, navigate to the "Weather" section to evaluate if the data retrieval issue has been resolved.</li>
+    </ol>
+
+    </CollapsibleSection>
+
+    <h2>Navigating Forward</h2>
+    <p>With the successful establishment of network harmony, you've not only facilitated the flow of data between your applications but also gained invaluable insights into Docker networking. This knowledge empowers you to architect and debug containerized applications with confidence, ensuring robust, scalable, and communicative services in your development endeavors.</p>
+    
+    <p>May your development journey be smooth, your networks reliable, and your applications ever-resilient in the face of changing tides.</p>
+</div>
+
+<style>
+    .container {
+        max-width: 960px;
+        margin: auto;
+    }
+    ol {
+        margin-left: 20px;
+    }
+    ol li, p {
+        margin-bottom: 10px;
+    }
+    pre, code {
+        background-color: #f5f5f5;
+        border: 1px solid #ccc;
+        display: block;
+        padding: 10px;
+    }
+</style>

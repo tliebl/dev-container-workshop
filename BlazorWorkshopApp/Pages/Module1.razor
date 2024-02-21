@@ -1,0 +1,76 @@
+@page "/navigating-the-depths"
+@using BlazorWorkshopApp.Components
+
+<PageTitle>Navigating the Depths: Volumes in Remote Containers</PageTitle>
+
+<div class="container mt-5">
+    <h1>Navigating the Depths: Volumes in Remote Containers</h1>
+    
+    <p>Welcome aboard the vessel of discovery into the world of Docker volumes and remote containers. This self-directed module is designed to equip you with the skills to navigate and master the intricacies of managing volumes in a containerized development environment. Prepare to set sail on this solitary journey with the map in your hands.</p>
+    
+    <h2>Your Quest</h2>
+    <p>In the vast ocean of containerization, volumes stand as islands of persistent data. Your mission is to understand how to effectively create, manage, and utilize these volumes within the context of remote containers in Visual Studio Code.</p>
+    
+    <h2>Challenge 1: The Direct Mount Mirage</h2>
+    <CollapsibleSection>
+        <p><strong>Objective:</strong> Attempt to mount a local file directly into your service within the Docker Compose file. Observe and reflect on the outcome.</p>
+        <p><strong>Steps:</strong></p>
+        <ol>
+            <li>Create a text file named <code>treasure.txt</code> in your project directory. Write "The treasure of volume mastery awaits!" inside.</li>
+            <li>Modify your <code>docker-compose-local-apps.yml</code> to include a volume that attempts to mount <code>treasure.txt</code> directly into the <code>workshop-api</code> service at <code>/app/data/treasure.txt</code>.</li>
+            <li>Rebuild and restart your containers. Use the command or VS Code's Docker extension to facilitate this.</li>
+            <li>Attempt to access <code>treasure.txt</code> within the <code>workshop-api</code> container. Reflect on your findings.</li>
+        </ol>
+        <p><strong>Reflection:</strong> Did the file mount as expected? Discuss the implications of your attempt and the realization of how Docker Compose handles volume mounts in remote containers.</p>
+    </CollapsibleSection>
+
+    <h2>Challenge 2: Charting the Correct Course</h2>
+    <CollapsibleSection>
+        <p><strong>Objective:</strong> Correctly reference the remote container's volume from Docker Compose to make <code>treasure.txt</code> accessible within the <code>workshop-api</code> service.</p>
+        <p><strong>Guidance:</strong> Utilize named volumes to achieve persistence and accessibility. Reflect on the Docker volume scope and modify your <code>docker-compose-local-apps.yml</code> accordingly.</p>
+        <p><strong>Steps:</strong> The exact steps will depend on your setup and the named volume. Here’s a conceptual guide to follow:</p>
+        <ol>
+            <li>Identify the named volume associated with your remote container environment.</li>
+            <li>Modify your <code>docker-compose-local-apps.yml</code> to use this named volume for the <code>workshop-api</code> service, ensuring <code>treasure.txt</code> is placed correctly within the volume’s scope.</li>
+            <li>Rebuild and restart your containers, then verify the presence of <code>treasure.txt</code> within the <code>workshop-api</code> service.</li>
+        </ol>
+    </CollapsibleSection>
+
+    
+    <h2>Embarking on Your Journey</h2>
+    <p>This module sets the stage for your adventures in Docker and remote container management. By engaging with these challenges, you're not just learning to navigate volume mounts but also preparing yourself for greater feats in containerized development.</p>
+    
+    <h2>Safeguarding Your Treasures: The Importance of Named Volumes</h2>
+    <p>As you've navigated through the challenges of volume mounts, you've learned that named volumes are not just components of your containerized journey—they are the very islands where your precious code and workspace settings reside. The named volume <code>Dev-Containers-Workshop-...</code> is the chest that stores the treasure of your work: your code changes, configurations, and everything you've explored and modified in your remote container environment.</p>
+
+    <h3>A Word of Caution: Pruning with Care</h3>
+    <p>In the vast sea of development, it's sometimes necessary to clean the decks—pruning unused volumes and containers to keep your environment tidy and manageable. However, wielding the power of <code>docker volume prune</code> or removing volumes explicitly must be done with great caution.</p>
+
+    <p><strong>Why?</strong> Because if there are uncommitted code changes residing in your remote container's volume—changes that haven't been pushed to a remote repository or saved outside of the container—they will be lost in the abyss if the volume is removed. Like a map to a sunken treasure, once gone, these changes are irretrievable.</p>
+
+    <h3>Best Practices:</h3>
+    <ul>
+        <li><strong>Commit Often:</strong> Make it a habit to commit your changes to your repository frequently. This practice not only safeguards your work but also aids in collaboration and version tracking.</li>
+        <li><strong>Backup Before Pruning:</strong> Before conducting any cleanup operation that affects volumes, ensure you have backups of your important work. Consider exporting your work from the volume to your host machine if it's not yet ready to be committed.</li>
+        <li><strong>Understand Your Actions:</strong> Before executing commands that could affect data persistence—like <code>docker volume rm</code> or <code>docker volume prune</code>—make sure you understand which volumes will be impacted and what data might be lost.</li>
+    </ul>
+
+    <h3>Navigating Forward</h3>
+    <p>Armed with the knowledge of how named volumes function as the keystone of your remote container environment, and the caution required to manage them, you're now better equipped to navigate the complexities of containerized development. Remember, the goal is not just to master the technicalities of Docker and Visual Studio Code but to become a prudent and thoughtful navigator of your development journey.</p>
+
+    <p>May your code always be committed, your volumes persistent, and your development adventures prosperous.</p>
+
+</div>
+
+<style>
+    .container {
+        max-width: 800px;
+        margin: auto;
+    }
+    ol {
+        margin-left: 20px;
+    }
+    ol li {
+        margin-bottom: 10px;
+    }
+</style>

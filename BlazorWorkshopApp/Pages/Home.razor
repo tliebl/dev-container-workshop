@@ -1,0 +1,77 @@
+﻿@page "/"
+
+<PageTitle>Container Conundrums: Navigating Dev Containers with VS Code</PageTitle>
+
+<div class="container mt-5">
+    <h1 class="mb-4">Welcome to "Container Conundrums"</h1>
+    
+    <p class="intro">Tailored for tech enthusiasts of all levels, this session unravels the intricacies of utilizing dev containers in Visual Studio Code. Whether you're facing off against build battles, untangling network issues, or exploring the essentials of containers, our practical, expert-led exercises will guide you through. Join us to demystify the challenges and harness the full potential of developing inside containers.</p>
+    
+    <div class="modules">
+        <!-- Module 1 -->
+        <div class="module">
+            <h2>Module 1</h2>
+            <p>Learn the critical skills of creating, managing, and troubleshooting volume mounts in a Dockerized development workflow. Through a blend of guided challenges, you will uncover the secrets of effectively using volumes in remote containers, mastering the art of persistence in a transient ecosystem.</p>
+            <a href="/navigating-the-depths" class="btn btn-primary">Dive In</a>
+        </div>
+        
+        <!-- Module 2 -->
+        <div class="module">
+            <h2>Module 2</h2>
+            <p>This module is your compass for navigating the often-misunderstood waters of connecting isolated environments in a containerized world. As you delve into the depths of Docker's network capabilities, you'll encounter challenges that mirror the real-world scenarios of ensuring seamless connectivity between your development haven and the bustling marketplace of services.</p>
+            <a href="/bridging-the-divide" class="btn btn-primary">Dive In</a>
+        </div>
+        
+        <!-- Module 3 -->
+        <div class="module">
+            <h2>Module 3</h2>
+            <p>sharpen your troubleshooting and problem-solving skills in the context of Visual Studio Code's remote containers. In this interactive challenge, participants play the role of tech detectives, tasked with uncovering and resolving a deliberately introduced error within their development environment.</p>
+            <a href="/module3-challenge" class="btn btn-primary">Dive In</a>
+        </div>
+        
+        <!-- Module 4 -->
+        @* <div class="module">
+            <h2>Module 4</h2>
+            <p>Encounter common issues firsthand and learn how to resolve them. This module covers troubleshooting techniques for network problems, build errors, and more.</p>
+            <a href="/breaking-and-remaking" class="btn btn-primary">Dive In</a>
+        </div> *@
+
+    </div>
+</div>
+
+<style>
+    .container {
+        max-width: 960px;
+        margin: auto;
+    }
+    .intro {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+    }
+    .modules .module {
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        margin-bottom: 1.5rem;
+    }
+    .modules .module h2 {
+        color: #007bff;
+    }
+    .modules .module p {
+        font-size: 1rem;
+        color: #333;
+    }
+    .btn-primary {
+        color: #fff;
+        background-color: #007bff;
+        border-color: #007bff;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #0046a3;
+    }
+</style>

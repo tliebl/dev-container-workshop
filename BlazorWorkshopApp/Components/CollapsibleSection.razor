@@ -1,0 +1,22 @@
+@if (IsVisible)
+{
+    <div>
+        @ChildContent
+    </div>
+}
+
+<button class="btn btn-info" @onclick="ToggleVisibility">@ButtonText</button>
+
+@code {
+    private bool IsVisible { get; set; } = false;
+
+    private string ButtonText => IsVisible ? "Hide Details" : "Show Details";
+
+    private void ToggleVisibility()
+    {
+        IsVisible = !IsVisible;
+    }
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+}

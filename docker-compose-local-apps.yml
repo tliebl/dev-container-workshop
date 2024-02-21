@@ -1,0 +1,46 @@
+version: "3"
+
+services:
+  blazor-ui:
+    container_name: blazor-ui
+    build:
+      context: BlazorWorkshopApp
+      dockerfile: Dockerfile
+    image: blazor-ui
+    ports:
+      - "5056:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=LocalDocker
+    networks: ['workshop']
+  workshop-api:
+    container_name: workshop-api
+    build:
+      context: WorkshopAPI
+      dockerfile: Dockerfile
+    image: workshop-api
+    ports:
+      - "5049:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=LocalDocker
+    networks: ['workshop']
+  workshop-db:
+    container_name: workshop-db
+    build:
+      context: ./
+      dockerfile: DockerfileSQLDB
+    image: "workshop-db"
+    volumes:
+      - Dev-Containers-Workshop-2ee77c39853b2fc25553324da2ae57f9135ae4bc7f87dbdd8b62bc3434433be5:/mytestdata
+    environment:
+      SA_PASSWORD: "YourStrong(!)Password"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "5040:1433"
+    networks: ['workshop']
+volumes:
+  Dev-Containers-Workshop-2ee77c39853b2fc25553324da2ae57f9135ae4bc7f87dbdd8b62bc3434433be5:
+    external: true
+networks:
+  workshop:
+    external:
+      name: workshop_network

@@ -1,7 +1,3 @@
-# dev-container-workshop
-comprehensive workshop aimed at equipping developers with the skills to troubleshoot and resolve common issues encountered when using devcontainers with Visual Studio Code
-
-
 # Introduction
 
 Welcome to the Remote Dev Container Workshop! This project is designed to empower developers with the skills and knowledge needed to utilize dev containers effectively in their development workflows. By leveraging Visual Studio Code and Docker, this workshop introduces participants to a seamless development environment setup that enhances productivity and ensures consistency across teams.

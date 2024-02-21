@@ -14,7 +14,7 @@ Once you have the prerequisites in place, you're ready to clone the workshop rep
 
 1. Open Visual Studio Code.
 2. Access the Command Palette by pressing `Ctrl+Shift+P` (Windows/Linux) or `Cmd+Shift+P` (macOS).
-3. Search for "Remote-Containers: Clone Repository in Container Volume..." from the list of commands.
+3. Search for "Dev Containers: Clone Repository in Container Volume..." from the list of commands.
 4. Enter the Workshop Repository URL when prompted: `https://github.com/tliebl/dev-container-workshop.git`
 5. Wait for VS Code to Set Up Your Environment: This process may take a few minutes. Visual Studio Code will build the dev container and clone the repository into a Docker volume.
 

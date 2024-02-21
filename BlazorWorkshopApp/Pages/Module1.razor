@@ -16,13 +16,25 @@
         <p><strong>Objective:</strong> Attempt to mount a local file directly into your service within the Docker Compose file. Observe and reflect on the outcome.</p>
         <p><strong>Steps:</strong></p>
         <ol>
-            <li>Create a text file named <code>treasure.txt</code> in your project directory. Write "The treasure of volume mastery awaits!" inside.</li>
-            <li>Modify your <code>docker-compose-local-apps.yml</code> to include a volume that attempts to mount <code>treasure.txt</code> directly into the <code>workshop-api</code> service at <code>/app/data/treasure.txt</code>.</li>
-            <li>Rebuild and restart your containers. Use the command or VS Code's Docker extension to facilitate this.</li>
-            <li>Attempt to access <code>treasure.txt</code> within the <code>workshop-api</code> container. Reflect on your findings.</li>
+            <li>Create a text file named <code>treasure.txt</code> in your project directory. Inside it, write "The treasure of volume mastery awaits!"</li>
+            <li>Modify your <code>docker-compose-local-apps.yml</code> file to attempt mounting <code>treasure.txt</code> directly into the <code>workshop-api</code> service at <code>/app/data/treasure.txt</code>.
+                <br><strong>Example Modification:</strong>
+                <pre><code class="language-yaml">services:
+    workshop-api:
+        volumes:
+        - ./treasure.txt:/app/data/treasure.txt</code></pre>
+            </li>
+            <li>To rebuild and restart your containers, use the VS Code task:
+                <ol>
+                    <li>Open the Command Palette with <code>Ctrl+Shift+B</code> (or <code>Cmd+Shift+B</code> on macOS).</li>
+                    <li>Choose <strong>"LOCAL APPS: Docker Compose REBUILD AND RUN"</strong> from the list. This action rebuilds the Docker images if necessary and starts the containers.</li>
+                </ol>
+            </li>
+            <li>Attempt to access <code>treasure.txt</code> within the <code>workshop-api</code> container. You can do this by executing a command in the container's shell or exploring the container's filesystem.</li>
         </ol>
-        <p><strong>Reflection:</strong> Did the file mount as expected? Discuss the implications of your attempt and the realization of how Docker Compose handles volume mounts in remote containers.</p>
+        <p><strong>Reflection:</strong> Did the file mount as expected? Discuss the implications of your attempt and how Docker Compose handles volume mounts in remote containers. Reflect on the outcome and the learning experience.</p>
     </CollapsibleSection>
+
 
     <h2>Challenge 2: Charting the Correct Course</h2>
     <CollapsibleSection>
@@ -33,6 +45,12 @@
             <li>Identify the named volume associated with your remote container environment.</li>
             <li>Modify your <code>docker-compose-local-apps.yml</code> to use this named volume for the <code>workshop-api</code> service, ensuring <code>treasure.txt</code> is placed correctly within the volume’s scope.</li>
             <li>Rebuild and restart your containers, then verify the presence of <code>treasure.txt</code> within the <code>workshop-api</code> service.</li>
+            <li>To rebuild and restart your containers, use the VS Code task:
+                <ol>
+                    <li>Open the Command Palette with <code>Ctrl+Shift+B</code> (or <code>Cmd+Shift+B</code> on macOS).</li>
+                    <li>Choose <strong>"LOCAL APPS: Docker Compose REBUILD AND RUN"</strong> from the list. This action rebuilds the Docker images if necessary and starts the containers.</li>
+                </ol>
+            </li>
         </ol>
     </CollapsibleSection>
 

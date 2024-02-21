@@ -1,5 +1,7 @@
-﻿@page "/weather"
+@page "/weather"
 @inject HttpClient Http
+@inject IConfiguration Configuration
+@inject IJSRuntime JSRuntime
 
 <PageTitle>Weather</PageTitle>
 
@@ -39,9 +41,16 @@ else
 @code {
     private WeatherForecast[]? forecasts;
 
+    private async Task LogToConsoleAsync(string message)
+    {
+        await JSRuntime.InvokeVoidAsync("console.log", message);
+    }
+
     protected override async Task OnInitializedAsync()
     {
-        forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("http://localhost:5049/api/weatherforecast");
+        var apiUrl = Configuration["WeatherForecastApiUrl"];
+        await LogToConsoleAsync($"API URL: {apiUrl}");
+        forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>(apiUrl);
     }
 
     public class WeatherForecast

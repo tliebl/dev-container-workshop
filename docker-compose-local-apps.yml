@@ -19,7 +19,7 @@ services:
       dockerfile: Dockerfile
     image: workshop-api
     ports:
-      - "5049:8080"
+      - "5059:8080"
     environment:
       - ASPNETCORE_ENVIRONMENT=LocalDocker
     networks: ['workshop']

@@ -37,5 +37,3 @@ services:
     networks: ['workshop']
 networks:
   workshop:
-    external:
-      name: workshop_network

@@ -1,0 +1,67 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "LOCAL APPS: Docker Compose BUILD",
+            "command": "docker-compose -f docker-compose-local-apps.yml build",
+            "group": "build",
+            "type": "shell",
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "LOCAL APPS: Docker Compose RUN",
+            "command": "docker-compose -f docker-compose-local-apps.yml up -d",
+            "group": "build",
+            "type": "shell",
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "LOCAL APPS: Docker Compose STOP",
+            "command": "docker-compose -f docker-compose-local-apps.yml down",
+            "group": "build",
+            "type": "shell",
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "LOCAL APPS: Docker Compose REBUILD AND RUN",
+            "command": "docker-compose -f docker-compose-local-apps.yml up --build -d",
+            "group": "build",
+            "type": "shell",
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "MODULE 3: Introduce Dev Container Error",
+            "type": "shell",
+            "command": "git update-index --assume-unchanged .devcontainer/devcontainer.json && chmod +x ./Module-Scripts/modifyDevContainer.sh && ./Module-Scripts/modifyDevContainer.sh",
+            "presentation": {
+                "reveal": "always"
+            },
+            "group": {
+                "kind": "build"
+            }
+        },
+        {
+            "label": "Revert Dev Container Errors",
+            "type": "shell",
+            "command": "git update-index --no-assume-unchanged .devcontainer/devcontainer.json",
+            "presentation": {
+                "reveal": "always"
+            },
+            "group": {
+                "kind": "build"
+            }
+        }
+    ]
+}

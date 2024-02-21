@@ -1,66 +1,25 @@
-# Introduction
+To ensure a smooth and productive experience during the workshop, please follow the steps below to set up your environment:
 
-Welcome to the Remote Dev Container Workshop! This project is designed to empower developers with the skills and knowledge needed to utilize dev containers effectively in their development workflows. By leveraging Visual Studio Code and Docker, this workshop introduces participants to a seamless development environment setup that enhances productivity and ensures consistency across teams.
+## Prerequisites:
 
-## Getting Started
+- **Visual Studio Code**: Ensure you have the latest version of Visual Studio Code installed. [Download here](https://code.visualstudio.com/Download).
 
-This section will guide you through the process of getting the workshop code running on your system.
+- **Docker**: You'll need Docker installed and running on your machine. [Get Docker](https://docs.docker.com/get-docker/).
 
-### Installation Process
+- **Remote - Containers Extension for VS Code**: Install the 'Remote - Containers' extension from Microsoft. You can find this in the VS Code Extensions Marketplace or [install it directly here](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
 
-1. **Prerequisites**:
-    - Install [Docker](https://docs.docker.com/get-docker/) on your system.
-    - Install [Visual Studio Code](https://code.visualstudio.com/Download).
-    - Install the [Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension for VS Code.
+## Getting Started:
 
-2. **Clone the Repository into a Container Volume**:
-    - Open Visual Studio Code.
-    - Press `F1` to open the Command Palette or use `Ctrl+Shift+P`.
-    - Type and select "Remote-Containers: Clone Repository in Container Volume..."
-    - Enter the URL of this repository when prompted.
-    - Select the appropriate dev container configuration when asked. Visual Studio Code will then build the dev container and clone the repository into a volume, completely within Docker.
+Once you have the prerequisites in place, you're ready to clone the workshop repository into a remote container:
 
-3. **Open in VS Code**:
-    - Open the cloned repository folder in Visual Studio Code.
-    - VS Code might prompt you to reopen the folder in a container. Select "Reopen in Container" to start the dev container setup. If not prompted, you can open the Command Palette (`Ctrl+Shift+P`) and select "Remote-Containers: Open Folder in Container..."
+1. Open Visual Studio Code.
+2. Access the Command Palette by pressing `Ctrl+Shift+P` (Windows/Linux) or `Cmd+Shift+P` (macOS).
+3. Search for "Remote-Containers: Clone Repository in Container Volume..." from the list of commands.
+4. Enter the Workshop Repository URL when prompted: `https://github.com/tliebl/dev-container-workshop.git`
+5. Wait for VS Code to Set Up Your Environment: This process may take a few minutes. Visual Studio Code will build the dev container and clone the repository into a Docker volume.
 
-### Software Dependencies
+## What to Expect:
 
-- Docker: Used for creating isolated development environments.
-- .NET SDK 8.0.100: Required for building and running the .NET application.
-- Visual Studio Code Extensions (included in the dev container setup):
-    - C# (ms-dotnettools.csharp)
-    - GitHub Copilot (GitHub.copilot)
-    - Additional extensions as per project requirements.
+Your development environment will be fully configured for you, including all the necessary dependencies and tools to participate in the workshop activities. This setup ensures that everyone is on the same page, regardless of individual computer configurations.
 
-### Latest Releases
-
-Stay tuned for updates and latest release information.
-
-### API References
-
-Refer to the [Microsoft .NET documentation](https://docs.microsoft.com/en-us/dotnet/) for detailed API references and development guides.
-
-## Build and Test
-
-To build and test the project:
-
-1. **Build the Project**:
-    - Use the `dotnet build` command in the integrated terminal within VS Code to compile the project.
-
-2. **Run Tests**:
-    - Execute `dotnet test` to run the unit tests and verify the application's functionality.
-
-## Contribute
-
-We welcome contributions to enhance this workshop project! Whether it's adding new features, improving documentation, or reporting issues, your input is valuable. Here's how you can contribute:
-
-1. **Fork the Repository**: Start by forking the repository to your GitHub account.
-2. **Make Your Changes**: Implement your changes or improvements in your forked version.
-3. **Submit a Pull Request**: Create a pull request against the main repository with a clear description of your changes and the benefits they bring.
-4. **Code Review**: Your pull request will be reviewed, and feedback may be provided to ensure quality and consistency.
-
-## Learn More
-
-For more detailed instructions on working with dev containers and Visual Studio Code, visit the [VS Code Documentation on Developing inside a Container](https://code.visualstudio.com/docs/remote/containers).
-
+During the Workshop, we'll dive into various challenges that will require you to utilize the skills and knowledge gained from setting up and working within your dev container. Our expert-led exercises are designed to enhance your understanding and capabilities in working with containers, providing you with hands-on experience in solving real-world development scenarios.
